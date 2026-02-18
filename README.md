@@ -1,55 +1,37 @@
-# 🎮 Análisis Estratégico del Mercado Global de Videojuegos (1980-2016)
-
-## 📌 Visión General
-Como **Analista de Datos**, he desarrollado este proyecto para transformar un dataset de más de 16,000 registros en **inteligencia de negocios**. El análisis no solo muestra números, sino que identifica patrones de consumo que ayudan a tomar decisiones sobre inversión en desarrollo y estrategias de marketing regional.
+🎮 Proyecto de Análisis de Datos: Mercado Global de Videojuegos
 
 
+Este repositorio contiene un proyecto integral de Ciencia de Datos que abarca desde la limpieza (ETL) hasta la visualización estratégica del dataset vgsales. El objetivo es identificar patrones de éxito, ciclos de vida de productos y diferencias culturales en el consumo de videojuegos.
 
----
+⚙️ Flujo de Trabajo (Pipeline)
+1. Ingeniería de Datos (ETL)
+Carga: Ingesta del dataset original vgsales.csv.
 
-## 🚀 Preguntas de Negocio Resueltas
+Limpieza: Tratamiento de valores nulos y estandarización de tipos de datos.
 
-### 1. 📈 Evolución y Cuota de Mercado (Market Share)
-**Problema:** ¿Hacia dónde se mueve el dinero?
-- **Análisis:** Visualización de áreas apiladas para ver la dominancia de géneros.
-- **Insight:** Los géneros *Platform* dominaron los 80/90, pero fueron desplazados por *Action* y *Shooter*, que hoy representan el motor financiero de la industria.
+Transformación: Creación de tablas pivote y agrupaciones para preparar los datos para el análisis visual.
 
-### 2. 🔄 Ciclo de Vida: El Duelo PS3 vs PS4
-**Problema:** ¿Cuándo es el momento óptimo para abandonar una tecnología vieja?
-- **Análisis:** Comparación temporal de ventas entre generaciones.
-- **Insight:** Identificamos el punto de "crossover" donde la PS4 superó a la PS3, marcando el fin de la rentabilidad del hardware antiguo.
+2. Análisis Exploratorio (EDA)
+El script genera 6 visualizaciones clave que responden a preguntas de negocio específicas:
 
-### 3. 🗺️ Estrategia de Localización (Japón vs. Norteamérica)
-**Problema:** ¿Podemos usar el mismo marketing en todo el mundo?
-- **Análisis:** Matriz de correlación de Pearson y Top 5 regional.
-- **Insight:** La baja correlación entre JP y NA confirma que Japón requiere una estrategia enfocada en *Role-Playing*, mientras que en NA el foco debe ser *Action*.
+Visualización,                             Tipo de Gráfico,                   Descripción del Análisis
+Ventas por Género y Región,                Gráfico de Barras,      "Comparativa de cómo rinden los géneros (Acción, Deportes, etc.) en Norteamérica, Europa y Japón."
+Ventas Totales por Año,                   Gráfico de Línea (Rojo),  Tendencia histórica que muestra el auge y la caída del volumen de ventas globales.
+Promedio de Ventas por Género,            Gráfico Circular (Pie Chart), Distribución porcentual que revela qué géneros son más eficientes en promedio por título lanzado.
+Evolución de Cuota de Mercado,            Stackplot (Áreas),             Visualización de cómo la popularidad de los géneros ha cambiado a lo largo de las décadas.
+Ciclo de Vida: PS3 vs PS4,              Gráfico de Líneas,                 Comparativa directa del rendimiento anual entre generaciones de consolas Sony.
+Correlación NA vs JP,                  Mapa de Calor (Heatmap),       Matriz que evidencia la baja correlación entre los gustos del mercado americano y el japonés.
 
-### 4. 🎯 El Principio de Pareto (Los "Hits")
-**Problema:** ¿Dependemos de pocos juegos o del volumen?
-- **Análisis:** Cálculo de concentración de ventas del Top 50.
-- **Insight:** Una minoría de títulos genera la mayoría de los ingresos globales, validando la estrategia de "Alta Calidad sobre Cantidad".
+🧠 Insights y Hallazgos
+Eficiencia vs. Volumen: El análisis de la variable personalizada de "Calidad" (promedio de ventas) destaca a publishers como mixi, Inc, Wizard Video Games y Westwood Studios con un score perfecto de 1.0, demostrando alta eficiencia.
 
-### 5. 🏆 Eficiencia de los Competidores (Benchmarking)
-**Problema:** ¿Quién es el Publisher más inteligente (no el más grande)?
-- **Análisis:** Promedio de ventas por título filtrando ruido estadístico.
-- **Insight:** Identificamos qué empresas tienen el mejor "ojo" comercial al lograr promedios de ventas más altos por cada juego lanzado.
+Divergencia Cultural: El Heatmap confirma estadísticamente que Japón es un mercado aislado con preferencias únicas, mientras que Norteamérica y Europa muestran una correlación más fuerte.
 
----
+🛠️ Tecnologías Utilizadas
+Python: Lenguaje principal.
 
-## 🛠️ Stack Técnico y Funciones Utilizadas
-- **Limpieza de Datos:** Manejo de valores nulos y filtrado de años inconsistentes.
-- **Pandas:** `groupby()`, `unstack()`, `pivot_table()`, `isin()`, `nlargest()`.
-- **Estadística:** Coeficientes de correlación y normalización de ejes (`axis=0`).
-- **Visualización:** `plt.stackplot()`, `sns.heatmap()`, `plt.plot(marker='o')`.
+Pandas: Manipulación de DataFrames y agrupaciones.
 
----
+Matplotlib: Generación de gráficos de líneas, barras, pastel y stackplot.
 
-##  Cómo navegar este proyecto
-1.  **`Untitled37.ipynb`**: Contiene todo el proceso de ETL (Extracción, Transformación y Carga) y visualización.
-2.  **`vgsales.csv`**: Fuente de datos cruda.
-   
-
-
-
-
----
+Seaborn: Visualización estadística avanzada (Heatmap).
